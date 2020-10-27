@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Caravan</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLoginTitulo" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLoginTitulo">Entre na Sua Conta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" class="form-control" id="loginEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginSenha">Senha</label>
+                            <input type="password" class="form-control" id="loginSenha">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Entrar na conta</button>
+                        <small class="form-text text-muted">Esqueceu a senha? <a href="#">Clique aqui.</a></small>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- AQUI JAZ O MODAL-->
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top p-3 box-shadow">
+        <a class="navbar-brand" href="/">
+            <img src="~/Content/Images/caravan.svg" alt="Caravan">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Locais</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @Html.ActionLink("California", "California", "Local", new { area = "" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Paris", "California", "Local", new { area = "" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Dublin", "California", "Local", new { area = "" }, new { @class = "dropdown-item" })
+                    </div>
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Planos", "Index", "Plano", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Contato", "Index", "Contato", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Inscreva-se", "Index", "Registrar", new { area = "" }, new { @class = "btn btn-primary ml-md-2" })
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    @RenderBody()
+
+    <footer class="bg-dark text-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <h4 class="h6">PÁGINAS</h4>
+                    <ul class="list-unstyled">
+                        <li>@Html.ActionLink("Planos", "Index", "Plano")</li>
+                        <li>@Html.ActionLink("Contatos", "Index", "Contato")</li>
+                        <li>@Html.ActionLink("Inscreva-se", "Index", "Registrar")</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h4 class="h6">Locais</h4>
+                    <ul class="list-unstyled">
+                        <li>@Html.ActionLink("California", "California", "Local")</li>
+                        <li>@Html.ActionLink("Paris", "California", "Local")</li>
+                        <li>@Html.ActionLink("Dublin", "California", "Local")</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="h6">DADOS DE CONTATO</h4>
+                    <ul class="list-unstyled text-secondary">
+                        <li>gabryelwapnyk@gmail.com</li>
+                        <li>11 95806-7640</li>
+                        <li>De Seg. à Sex. das 8h às 18h</li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h4 class="h6">REDES SOCIAIS</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com" class="btn btn-outline-secondary btn-block mb-2 btn-sm" style="max-width: 140px;">Facebook</a></li>
+                        <li><a href="https://www.linkedin.com/in/gabryel-wapnyk-b81a081a4/" class="btn btn-outline-secondary btn-block mb-2 btn-sm" style="max-width: 140px;">Linkedin</a></li>
+                        <li><a href="https://github.com/gwapnyk" class="btn btn-outline-secondary btn-block mb-2 btn-sm" style="max-width: 140px;">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bg-primary text-center py-3">
+            <p class="mb-0">Caravan © 2017. Alguns direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/popper")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
